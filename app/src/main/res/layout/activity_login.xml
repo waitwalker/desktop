@@ -24,7 +24,7 @@
             android:elevation="10dp"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
             android:background="@drawable/login_content_shape"
             android:layout_width="match_parent"
             android:layout_height="180dp">
@@ -46,6 +46,8 @@
                         android:layout_height="24dp"/>
 
                     <EditText
+                        android:textColor="@android:color/holo_green_dark"
+                        android:id="@+id/login_account_text"
                         android:textColorHint="@android:color/darker_gray"
                         android:textSize="18sp"
                         android:layout_marginStart="10dp"
@@ -74,6 +76,7 @@
                         android:layout_height="24dp"/>
 
                     <EditText
+                        android:id="@+id/login_pwd_text"
                         android:textColorHint="@android:color/darker_gray"
                         android:textColor="@android:color/holo_green_dark"
                         android:textSize="18sp"
@@ -91,6 +94,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/login_login_button"
             android:textSize="20sp"
             android:text="@string/login_button_title"
             android:elevation="10dp"

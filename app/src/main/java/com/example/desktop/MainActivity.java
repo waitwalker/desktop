@@ -1,17 +1,15 @@
 package com.example.desktop;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 
+import com.example.desktop.activity.BaseActivity;
 import com.example.desktop.activity.LoginActivity;
 import com.example.desktop.activity.RegisterActivity;
 
-public class MainActivity extends AppCompatActivity implements CompoundButton.OnClickListener {
+public class MainActivity extends BaseActivity implements CompoundButton.OnClickListener {
 
     Button loginButton;
     Button registerButton;
@@ -32,12 +30,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button:
-                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
+                navigateTo(LoginActivity.class);
                 break;
             case R.id.register_button:
-                Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(registerIntent);
+                navigateTo(RegisterActivity.class);
                 break;
         }
     }

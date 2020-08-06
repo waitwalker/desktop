@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <RelativeLayout
-                    android:background="@android:color/holo_purple"
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <ImageView
@@ -47,6 +46,7 @@
                         android:layout_height="24dp"/>
 
                     <EditText
+                        android:textColorHint="@android:color/darker_gray"
                         android:textSize="18sp"
                         android:layout_marginStart="10dp"
                         android:hint="@string/account_hint"
@@ -63,7 +63,6 @@
                     android:layout_height="0.5dp"/>
                 <RelativeLayout
                     android:layout_marginTop="5dp"
-                    android:background="@android:color/holo_blue_dark"
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <ImageView
@@ -75,6 +74,7 @@
                         android:layout_height="24dp"/>
 
                     <EditText
+                        android:textColorHint="@android:color/darker_gray"
                         android:textColor="@android:color/holo_green_dark"
                         android:textSize="18sp"
                         android:layout_marginStart="10dp"

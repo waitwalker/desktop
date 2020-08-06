@@ -9,6 +9,6 @@ package com.example.desktop.network;
 /// @date 2020/8/6
 ///
 public interface ResponseCallBack {
-    void onSuccess(String sting);
+    void onSuccess(String string);
     void onFailure(Exception e);
 }

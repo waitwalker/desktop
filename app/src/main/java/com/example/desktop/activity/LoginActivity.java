@@ -77,12 +77,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
         NetworkManager.networkBase(ApiConfig.kLogin, map).postRequest(new ResponseCallBack() {
             @Override
             public void onSuccess(final String string) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        showToast(string);
-                    }
-                });
+                showToastSync(string);
 //                Message message = myHandler.obtainMessage();
 //                message.obj = string;
 //                myHandler.sendMessage(message);
@@ -91,12 +86,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
             @Override
             public void onFailure(Exception e) {
                 Log.d("1","登录遇到错误");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        showToast("登录遇到错误");
-                    }
-                });
+                showToastSync("登录遇到错误");
             }
         });
 

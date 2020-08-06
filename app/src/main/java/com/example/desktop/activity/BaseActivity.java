@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.widget.Toast;
 
 import com.example.desktop.MainActivity;
@@ -29,6 +30,20 @@ public class BaseActivity extends AppCompatActivity {
     ///
     public void showToast(String message) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+    }
+
+    ///
+    /// @name showToastSync
+    /// @description 子线程处理Toast
+    /// @parameters
+    /// @return
+    /// @author liuca
+    /// @date 2020/8/6
+    ///
+    public void showToastSync(String message) {
+        Looper.prepare();
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        Looper.loop();
     }
 
     ///

@@ -77,12 +77,7 @@ public class RegisterActivity extends BaseActivity implements CompoundButton.OnC
         NetworkManager.networkBase(ApiConfig.kRegister, map).postRequest(new ResponseCallBack() {
             @Override
             public void onSuccess(final String string) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        showToast(string);
-                    }
-                });
+                showToastSync(string);
 //                Message message = myHandler.obtainMessage();
 //                message.obj = string;
 //                myHandler.sendMessage(message);
@@ -91,12 +86,7 @@ public class RegisterActivity extends BaseActivity implements CompoundButton.OnC
             @Override
             public void onFailure(Exception e) {
                 Log.d("1","注册遇到错误");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        showToast("注册遇到错误");
-                    }
-                });
+                showToastSync("注册遇到错误");
             }
         });
 

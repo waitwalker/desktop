@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 
 import com.example.desktop.activity.LoginActivity;
+import com.example.desktop.activity.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnClickListener {
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 startActivity(loginIntent);
                 break;
             case R.id.register_button:
+                Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(registerIntent);
                 break;
         }
     }

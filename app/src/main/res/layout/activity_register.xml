@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".activity.LoginActivity">
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@mipmap/login"
+        android:layout_width="match_parent"
+        android:layout_height="329dp"/>
+
+    <LinearLayout
+        android:background="@android:color/transparent"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <LinearLayout
+            android:elevation="10dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/login_content_shape"
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
+
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <ImageView
+                        android:id="@+id/account"
+                        android:src="@mipmap/account"
+                        android:layout_marginStart="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"/>
+
+                    <EditText
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:hint="@string/account_hint"
+                        android:background="@null"
+                        android:layout_toEndOf="@id/account"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+                <View
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+                <RelativeLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+                    <ImageView
+                        android:id="@+id/pwd"
+                        android:src="@mipmap/pwd"
+                        android:layout_marginStart="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"/>
+
+                    <EditText
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textColor="@android:color/holo_green_dark"
+                        android:textSize="18sp"
+                        android:layout_marginStart="10dp"
+                        android:hint="@string/pwd_hint"
+                        android:background="@null"
+                        android:layout_toEndOf="@id/pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:textSize="20sp"
+            android:text="@string/register_button_title"
+            android:elevation="10dp"
+            android:background="@drawable/register_page_button_shape"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

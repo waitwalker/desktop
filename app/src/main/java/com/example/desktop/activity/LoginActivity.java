@@ -87,14 +87,11 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
                     LoginEntity.DataBean dataBean = loginEntity.getData();
                     String token = dataBean.getToken();
                     sharedPreferencesPut("token", token);
+                    navigateTo(HomeActivity.class);
                     showToastSync(loginEntity.getMsg());
                 } else {
                     showToastSync("登录失败");
                 }
-
-//                Message message = myHandler.obtainMessage();
-//                message.obj = string;
-//                myHandler.sendMessage(message);
             }
 
             @Override

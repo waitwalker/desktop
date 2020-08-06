@@ -1,4 +1,5 @@
 package com.example.desktop.activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,10 +13,13 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import com.example.desktop.R;
+import com.example.desktop.entity.LoginEntity;
 import com.example.desktop.network.ApiConfig;
 import com.example.desktop.network.NetworkManager;
 import com.example.desktop.network.ResponseCallBack;
 import com.example.desktop.tools.StringTool;
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 
 public class LoginActivity extends BaseActivity implements CompoundButton.OnClickListener {
@@ -77,7 +81,17 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
         NetworkManager.networkBase(ApiConfig.kLogin, map).postRequest(new ResponseCallBack() {
             @Override
             public void onSuccess(final String string) {
-                showToastSync(string);
+                Gson gson = new Gson();
+                LoginEntity loginEntity = gson.fromJson(string, LoginEntity.class);
+                if (loginEntity.getCode() == 1) {
+                    LoginEntity.DataBean dataBean = loginEntity.getData();
+                    String token = dataBean.getToken();
+                    sharedPreferencesPut("token", token);
+                    showToastSync(loginEntity.getMsg());
+                } else {
+                    showToastSync("登录失败");
+                }
+
 //                Message message = myHandler.obtainMessage();
 //                message.obj = string;
 //                myHandler.sendMessage(message);

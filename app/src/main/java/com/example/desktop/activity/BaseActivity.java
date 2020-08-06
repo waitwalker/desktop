@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
 import android.widget.Toast;
@@ -57,5 +58,32 @@ public class BaseActivity extends AppCompatActivity {
     public void navigateTo(Class cls) {
         Intent intent = new Intent(context, cls);
         startActivity(intent);
+    }
+
+    ///
+    /// @name sharedPreferencesPut
+    /// @description 
+    /// @parameters 
+    /// @return 
+    /// @author liuca
+    /// @date 2020/8/6
+    ///
+    public void sharedPreferencesPut(String key, String value) {
+        SharedPreferences sharedPreferences = getSharedPreferences("desktop",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+    }
+
+    ///
+    /// @name sharedPreferencesGet
+    /// @description 
+    /// @parameters 
+    /// @return 
+    /// @author liuca
+    /// @date 2020/8/6
+    ///
+    public String sharedPreferencesGet(String key) {
+        SharedPreferences sharedPreferences = getSharedPreferences("desktop",MODE_PRIVATE);
+        return sharedPreferences.getString(key,"无");
     }
 }

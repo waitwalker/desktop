@@ -1,6 +1,6 @@
 package com.example.desktop.entity;
 
-class LoginEntity {
+public class LoginEntity {
 
     /**
      * code : 1

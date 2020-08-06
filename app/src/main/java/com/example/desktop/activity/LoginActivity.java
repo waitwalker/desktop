@@ -81,7 +81,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
 
         // 3 创建请求
         Request request = new Request.Builder()
-                .url("http://0.0.0.0:7300/mock/5ea0f178bf88582b7376c7a3/api/login")
+                .url("http://192.168.3.44:7300/mock/5ea0f178bf88582b7376c7a3/api/login")
                 .addHeader("contentType","application/json;chatset=UTF-8")
                 .post(requestBody)
                 .build();

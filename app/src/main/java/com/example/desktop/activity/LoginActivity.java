@@ -12,27 +12,11 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import com.example.desktop.R;
-import com.example.desktop.config.AppConfig;
 import com.example.desktop.network.ApiConfig;
 import com.example.desktop.network.NetworkManager;
 import com.example.desktop.network.ResponseCallBack;
 import com.example.desktop.tools.StringTool;
-
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
-
-
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 public class LoginActivity extends BaseActivity implements CompoundButton.OnClickListener {
 
@@ -90,7 +74,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
         map.put("account",account);
         map.put("password",pwd);
 
-        NetworkManager.networkBase(ApiConfig.Login, map).postRequest(new ResponseCallBack() {
+        NetworkManager.networkBase(ApiConfig.kLogin, map).postRequest(new ResponseCallBack() {
             @Override
             public void onSuccess(final String string) {
                 runOnUiThread(new Runnable() {

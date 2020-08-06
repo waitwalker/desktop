@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 
 import com.example.desktop.R;
 import com.example.desktop.config.AppConfig;
+import com.example.desktop.network.ApiConfig;
 import com.example.desktop.network.NetworkManager;
 import com.example.desktop.network.ResponseCallBack;
 import com.example.desktop.tools.StringTool;
@@ -89,17 +90,29 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
         map.put("account",account);
         map.put("password",pwd);
 
-        NetworkManager.networkBase("api/login",map).postRequest(new ResponseCallBack() {
+        NetworkManager.networkBase(ApiConfig.Login, map).postRequest(new ResponseCallBack() {
             @Override
-            public void onSuccess(String string) {
-                Message message = myHandler.obtainMessage();
-                message.obj = string;
-                myHandler.sendMessage(message);
+            public void onSuccess(final String string) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast(string);
+                    }
+                });
+//                Message message = myHandler.obtainMessage();
+//                message.obj = string;
+//                myHandler.sendMessage(message);
             }
 
             @Override
             public void onFailure(Exception e) {
                 Log.d("1","登录遇到错误");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast("登录遇到错误");
+                    }
+                });
             }
         });
 

@@ -1,18 +1,23 @@
 package com.example.desktop.activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Toast;
+
+
+import androidx.annotation.NonNull;
 
 import com.example.desktop.R;
+import com.example.desktop.config.AppConfig;
 import com.example.desktop.tools.StringTool;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
-import org.json.JSONStringer;
+
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,6 +37,16 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
     EditText pwsText;
 
     Button loginButton;
+
+    private Handler myHandler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if (msg.obj != null) {
+                Log.d("1","响应的数据:" + msg.obj);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +96,7 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
 
         // 3 创建请求
         Request request = new Request.Builder()
-                .url("http://192.168.3.44:7300/mock/5ea0f178bf88582b7376c7a3/api/login")
+                .url(AppConfig.BASE_URL + "api/login")
                 .addHeader("contentType","application/json;chatset=UTF-8")
                 .post(requestBody)
                 .build();
@@ -99,6 +114,10 @@ public class LoginActivity extends BaseActivity implements CompoundButton.OnClic
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 Log.d("1","登录成功");
+                String string = response.body().string();
+                Message message = myHandler.obtainMessage();
+                message.obj = string;;
+                myHandler.sendMessage(message);
             }
         });
 

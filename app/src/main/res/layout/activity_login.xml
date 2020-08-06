@@ -85,6 +85,7 @@
                         android:background="@null"
                         android:layout_toEndOf="@id/pwd"
                         android:layout_width="match_parent"
+                        android:inputType="textPassword"
                         android:layout_height="match_parent"/>
 
                 </RelativeLayout>

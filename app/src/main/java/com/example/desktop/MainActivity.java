@@ -15,13 +15,18 @@ public class MainActivity extends BaseActivity implements CompoundButton.OnClick
     Button registerButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int initLayout() {
+        return R.layout.activity_main;
+    }
 
+    @Override
+    protected void initView() {
         loginButton = findViewById(R.id.login_button);
         registerButton = findViewById(R.id.register_button);
+    }
 
+    @Override
+    protected void initData() {
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
     }

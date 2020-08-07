@@ -22,27 +22,22 @@ public class RegisterActivity extends BaseActivity implements CompoundButton.OnC
 
     EditText accountText;
     EditText pwsText;
-
     Button registerButton;
 
-    private Handler myHandler = new Handler(){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            if (msg.obj != null) {
-                Log.d("1","响应的数据:" + msg.obj);
-            }
-        }
-    };
+    @Override
+    protected int initLayout() {
+        return R.layout.activity_register;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
+    protected void initView() {
         accountText = findViewById(R.id.register_account);
         pwsText = findViewById(R.id.register_pwd);
         registerButton = findViewById(R.id.register_page_button);
+    }
+
+    @Override
+    protected void initData() {
         registerButton.setOnClickListener(this);
     }
 

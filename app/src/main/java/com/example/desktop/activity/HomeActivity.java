@@ -34,12 +34,18 @@ public class HomeActivity extends BaseActivity {
     private CommonTabLayout commonTabLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+    protected int initLayout() {
+        return  R.layout.activity_home;
+    }
+
+    @Override
+    protected void initView() {
         viewPager = findViewById(R.id.viewpager);
         commonTabLayout = findViewById(R.id.commonTabLayout);
+    }
 
+    @Override
+    protected void initData() {
         mFragments.add(HomeFragment.newInstance("1","2"));
         mFragments.add(CollectFragment.newInstance("1","2"));
         mFragments.add(MyFragment.newInstance("1","2"));
@@ -79,6 +85,8 @@ public class HomeActivity extends BaseActivity {
             }
         });
         viewPager.setAdapter(new HomeAdapter(getSupportFragmentManager(), mTitles, mFragments));
-
     }
+
+
+
 }

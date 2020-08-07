@@ -12,14 +12,20 @@ import android.widget.Toast;
 import com.example.desktop.MainActivity;
 import com.example.desktop.R;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+        setContentView(initLayout());
         context = this;
+        initView();
+        initData();
     }
+
+    protected abstract int initLayout();
+    protected abstract void initView();
+    protected abstract  void initData();
 
     ///
     /// @name showToast

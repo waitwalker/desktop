@@ -7,12 +7,14 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.desktop.R;
+import com.example.desktop.adapter.HomeAdapter;
 import com.example.desktop.entity.TabEntity;
 import com.example.desktop.fragment.CollectFragment;
 import com.example.desktop.fragment.HomeFragment;
 import com.example.desktop.fragment.MyFragment;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,20 @@ public class HomeActivity extends BaseActivity {
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnSelectIds[i]));
         }
+
+        commonTabLayout.setTabData(mTabEntities);
+        commonTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                viewPager.setCurrentItem(position);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
+        viewPager.setAdapter(new HomeAdapter(getSupportFragmentManager(), mTitles, mFragments));
 
     }
 }

@@ -60,6 +60,24 @@ public class HomeActivity extends BaseActivity {
 
             }
         });
+
+        // 上下联动添加
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                commonTabLayout.setCurrentTab(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         viewPager.setAdapter(new HomeAdapter(getSupportFragmentManager(), mTitles, mFragments));
 
     }

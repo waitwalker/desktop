@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -40,7 +41,19 @@
 
         </LinearLayout>
 
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/slidingTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tl:tl_indicator_corner_radius="1.5dp"
+            tl:tl_indicator_height="3dp"
+            tl:tl_indicator_width="10dp"/>
+
     </LinearLayout>
 
-
+    <com.example.desktop.view.FixedViewPager
+        android:id="@+id/fixedViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>
